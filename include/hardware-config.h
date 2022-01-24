@@ -21,6 +21,8 @@
 #define SSRATE 9600
 
 // Plausible minimum ppms for CO2 readouts
+// less than MIN_TEMP will force new data readout (sensor sometime report -17°C along with 0ppm)
 #define CO2_MIN_PPM 350
+#define CO2_MIN_TEMP 0
 
 #endif //HARDWARE_CONFIG_H

@@ -295,13 +295,22 @@ void loop()
   int8_t Temp;
   Temp = CO2sense.getTemperature();
   DEBUG_PRINTLN("Temp: " + String(Temp) + " degC");
-  if (CO2 < CO2_MIN_PPM)
+  if (Temp < CO2_MIN_TEMP)
   {
-    // Implausible values received, redo readout
+    // Implausible temeprature received, redo readout
+    delay(2000);
     CO2 = CO2sense.getCO2();
     Temp = CO2sense.getTemperature();
   }
-  
+
+  if (CO2 < CO2_MIN_PPM)
+  {
+    // Implausible PPMs, redo readout
+    delay(2000);
+    CO2 = CO2sense.getCO2();
+    Temp = CO2sense.getTemperature();
+  }
+    
   mqttClt.publish(co2_topic, String(CO2).c_str(), true);
   mqttClt.publish(temp_topic, String(Temp).c_str(), true);
   delay(100);
