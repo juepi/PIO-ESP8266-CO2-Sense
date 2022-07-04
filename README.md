@@ -12,3 +12,11 @@ Do note that the MH-Z19 use 3.3V levels for the serial communication, so you can
 
 ## Generic Requirements
 Please see [PIO-ESP8266-Template](https://github.com/juepi/PIO-ESP8266-Template) for general requirements and usage of this sketch.
+
+# Changelog
+
+## Release 1.0.0
+- Initial Release
+
+## Release 1.0.3
+- Reworked Code based on PIO-ESP8266-Template v1.0.3
