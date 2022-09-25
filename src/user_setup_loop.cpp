@@ -46,7 +46,7 @@ void user_loop()
   if (Temp < CO2_MIN_TEMP)
   {
     // Implausible temeprature received, redo readout
-    delay(2000);
+    MqttDelay(2000);
     CO2 = CO2sense.getCO2();
     Temp = CO2sense.getTemperature();
   }
@@ -54,7 +54,7 @@ void user_loop()
   if (CO2 < CO2_MIN_PPM)
   {
     // Implausible PPMs, redo readout
-    delay(2000);
+    MqttDelay(2000);
     CO2 = CO2sense.getCO2();
     Temp = CO2sense.getTemperature();
   }
@@ -68,5 +68,5 @@ void user_loop()
   ToggleLed(LED, 500, 4);
 #endif
   DEBUG_PRINTLN("User Loop finished, sleep for 10 minutes.");
-  delay(600000);
+  MqttDelay(600000);
 }
